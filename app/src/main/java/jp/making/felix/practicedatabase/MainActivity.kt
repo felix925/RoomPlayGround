@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
             playListName = "REOL"
         )
         val withTable = PlayListWithMusic(
-            music.musicId,
-            playlist.playListId
+            id,
+            id
         )
         dataBase.let {
             it.playlistDao().insertMusic(music)

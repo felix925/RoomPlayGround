@@ -1,9 +1,6 @@
 package jp.making.felix.practicedatabase.data.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import jp.making.felix.practicedatabase.data.entity.Music
 import jp.making.felix.practicedatabase.data.entity.PlayList
 
@@ -12,10 +9,10 @@ interface PlaylistDao {
     @Query("SELECT * FROM playlist")
     fun getAllPlaylist(): List<PlayList>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertPlayList(vararg playlist: PlayList)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMusic(vararg music: Music)
 
     @Delete
